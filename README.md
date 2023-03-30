@@ -95,7 +95,7 @@ Clone this repository to your desired folder:
 Prepare the database:
 - create user and password
 ```sh
-  sudo -u postgres createuser -s inkwell-blog -P
+  sudo -u postgres createuser -s inkwell_blog -P
 ```
 - Add password to env file
 ```sh
