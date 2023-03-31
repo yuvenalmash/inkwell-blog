@@ -28,7 +28,7 @@ RSpec.describe Like, type: :model do
     it 'increments the likes_counter of the post by 1' do
       user = User.create(name: 'User 1')
       post = Post.create(title: 'Post 1', text: 'Post 1 text', author: user)
-      like = Like.create(author: user, post: post)
+      Like.create(author: user, post: post)
       expect(post.likes_counter).to eq(1)
     end
   end

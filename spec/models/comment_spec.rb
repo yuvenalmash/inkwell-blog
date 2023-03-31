@@ -33,7 +33,7 @@ RSpec.describe Comment, type: :model do
     it 'increments the comments_counter of the post by 1' do
       user = User.create(name: 'User 1')
       post = Post.create(title: 'Post 1', text: 'Post 1 text', author: user)
-      comment = Comment.create(text: 'Comment 1', author: user, post: post)
+      Comment.create(text: 'Comment 1', author: user, post: post)
       expect(post.comments_counter).to eq(1)
     end
   end
