@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>User's Posts</title>
+  </head>
+  <body>
+    <header>
+      <%= image_tag url_for(@user.photo) %>
+      <h1><%= @user.name %></h1>
+    </header>
+    <ul>
+      <% @user.posts.each do |post| %>
+        <li>
+          <h3><%= link_to post.title, user_post_path(@user, post) %><h3>
+          <p><%= post.content %></p>
+          <p>Comments: <%= post.comments_counter %> Likes: <%= post.comments_count %></p>
+          <div>
+            <ul>
+              <% post.comments.each do |comment| %>
+                <li>
+                  <p>Author: <%= comment.author %></p>
+                  <p><%= comment.content %></p>
+                </li>
+              <% end %>
+            </ul>
+        </li>
+      <% end %>
+    </ul>
+    <button>pagination</button>
+  </body>
+</html>
