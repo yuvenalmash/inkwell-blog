@@ -12,14 +12,14 @@
       <% @user.posts.each do |post| %>
         <li>
           <h3><%= link_to post.title, user_post_path(@user, post) %><h3>
-          <p><%= post.content %></p>
-          <p>Comments: <%= post.comments_counter %> Likes: <%= post.comments_count %></p>
+          <p><%= post.text %></p>
+          <p>Comments: <%= post.comments_counter %> Likes: <%= post.comments_counter %></p>
           <div>
             <ul>
               <% post.comments.each do |comment| %>
                 <li>
                   <p>Author: <%= comment.author %></p>
-                  <p><%= comment.content %></p>
+                  <p><%= comment.text %></p>
                 </li>
               <% end %>
             </ul>
