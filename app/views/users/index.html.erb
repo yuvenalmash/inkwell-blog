@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Users</title>
+  </head>
+  <body>
+    <h1>Users</h1>
+    <ul>
+      <% @users.each do |user| %>
+        <li>
+          <%= image_tag url_for(user.photo) %>
+          <div>
+            <%= link_to user.name, user_path(user) %>
+            <p>Number of posts: <%= user.posts_counter %></p>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

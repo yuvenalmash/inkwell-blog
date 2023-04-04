@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Show Post</title>
+  </head>
+  <body
+    <h3><%= @post.title %> by <%= @post.author %></h3>
+    <p> Comments: <%= @post.comments.count %> Likes: <%= @post.likes.count %></p>
+    <p>
+      <%= @post.content %>
+    </p>
+    <div>
+      <h4>Comments</h4>
+      <ul>
+        <% @post.comments.each do |comment| %>
+          <li>
+            <p>Author: <%= comment.author %></p>
+            <p><%= comment.content %></p>
+          </li>
+        <% end %>
+      </ul>
+  </body>
+</html>
