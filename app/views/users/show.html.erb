@@ -1,26 +1,12 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title><%= @user.name %></title>
-  </head>
-  <body>
-    <header>
-      <%= image_tag url_for(@user.photo) %>
-      <h1><%= @user.name %></h1>
-    </header>
-    <div>
-      <h2>Bio</h2>
-      <p><%= @user.bio %></p>
-    </div>
-    <ul>
-      <% @user.recent_posts.each do |post| %>
-        <li>
-          <h3><%= link_to post.title, user_post_path(@user, post) %><h3>
-          <p><%= post.text %></p>
-          <p>Comments: <%= post.comment_counter %> Likes: <%= post.likes_counter %></p>
-        </li>
-      <% end %>
-    </ul>
-    <button>See all posts</button>
-  </body>
-</html>
+<%= link_to "Go Back", users_path %>
+<%= render 'shared/user', user: @user %>
+<div class="user-bio">
+  <h2>Bio</h2>
+  <p><%= @user.bio %></p>
+</div>
+<ul class=posts-list>
+  <% @user.recent_posts.each do |post| %>
+      <%= render 'shared/post', post: post %>
+  <% end %>
+</ul>
+<button><%= link_to 'See all posts', user_posts_path(@user) %></button>
