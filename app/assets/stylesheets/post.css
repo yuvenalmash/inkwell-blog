@@ -1,0 +1,30 @@
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.posts-list-li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 3px;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+.post-counters {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}

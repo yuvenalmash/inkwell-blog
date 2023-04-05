@@ -1,0 +1,29 @@
+.user {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.user-image {
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 10px;
+  width: 80%;
+}
+
+.user-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.user-counters {
+  text-align: right;
+  font-size: 1rem;
+}
