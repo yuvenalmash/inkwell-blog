@@ -7,7 +7,7 @@
     <h3><%= @post.title %> by <%= @post.author %></h3>
     <p> Comments: <%= @post.comments.count %> Likes: <%= @post.likes.count %></p>
     <p>
-      <%= @post.content %>
+      <%= @post.text %>
     </p>
     <div>
       <h4>Comments</h4>
@@ -15,7 +15,7 @@
         <% @post.comments.each do |comment| %>
           <li>
             <p>Author: <%= comment.author %></p>
-            <p><%= comment.content %></p>
+            <p><%= comment.text %></p>
           </li>
         <% end %>
       </ul>
