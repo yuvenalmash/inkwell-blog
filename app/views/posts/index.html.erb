@@ -1,31 +1,17 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>User's Posts</title>
-  </head>
-  <body>
-    <header>
-      <%= image_tag url_for(@user.photo) %>
-      <h1><%= @user.name %></h1>
-    </header>
-    <ul>
-      <% @user.posts.each do |post| %>
-        <li>
-          <h3><%= link_to post.title, user_post_path(@user, post) %><h3>
-          <p><%= post.text %></p>
-          <p>Comments: <%= post.comments_counter %> Likes: <%= post.comments_counter %></p>
-          <div>
-            <ul>
-              <% post.comments.each do |comment| %>
-                <li>
-                  <p>Author: <%= comment.author %></p>
-                  <p><%= comment.text %></p>
-                </li>
-              <% end %>
-            </ul>
-        </li>
+<%= link_to "Go Back", :back %>
+<%= render 'shared/user', user: @user %>
+<ul class="posts-list">
+  <% @user.posts.each do |post| %>
+    <li class="posts-list-li">
+      <%= render 'shared/post', post: post %>
+      <% if post.comments.count > 0 %>
+        <ul class="comments-list">
+          <% post.comments.each do |comment| %>
+            <%= render 'shared/comment', comment: comment %>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
-    <button>pagination</button>
-  </body>
-</html>
+    </li>
+  <% end %>
+</ul>
+<button>pagination</button>
