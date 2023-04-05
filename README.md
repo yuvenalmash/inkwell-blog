@@ -41,7 +41,7 @@
 <details>
   <summary>Framework</summary>
   <ul>
-    <li><a href="https://rubyonrails.org/"Ruby on rails</a><li>
+    <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
   </ul>
 </details>
 
@@ -117,16 +117,12 @@ To run the project, execute the following command:
 ```
 
 ### Run tests
-> Tests not yet implemented
 
-<!-- To run tests, run the following command:
+To run tests, run the following command:
 
 ```sh
-  bin/rails test test/models/user_test.rb
-  bin/rails test test/models/post_test.rb
-  bin/rails test test/models/comment_test.rb
-  bin/rails test test/models/like_test.rb
-``` -->
+  rspec
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,7 +130,7 @@ To run the project, execute the following command:
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Author1**
+👤 **Yuvenal Njoroge**
 
 - GitHub: [@githubhandle](https://github.com/yuvenalmash)
 - Twitter: [@twitterhandle](https://twitter.com/_Juvenal_)
