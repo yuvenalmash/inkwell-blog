@@ -1,0 +1,7 @@
+<section class=user>
+  <%= image_tag url_for(user.photo), class: 'user-image' %>
+  <div class="user-info">
+    <%= link_to user.name, user_path(user), class: 'user-name' %>
+    <p class="user-counters">Number of posts: <%= user.posts_counter %></p>
+  </div>
+</section>
