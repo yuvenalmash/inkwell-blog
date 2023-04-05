@@ -1,23 +1,13 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Show Post</title>
-  </head>
-  <body
-    <h3><%= @post.title %> by <%= @post.author %></h3>
-    <p> Comments: <%= @post.comments.count %> Likes: <%= @post.likes.count %></p>
-    <p>
-      <%= @post.text %>
-    </p>
-    <div>
-      <h4>Comments</h4>
-      <ul>
-        <% @post.comments.each do |comment| %>
-          <li>
-            <p>Author: <%= comment.author %></p>
-            <p><%= comment.text %></p>
-          </li>
-        <% end %>
-      </ul>
-  </body>
-</html>
+<%= link_to "Go Back", :back %>
+<section class=full-post>
+  <h3><%= @post.title %> by <%= @post.author.name %></h3>
+  <p class="post-counters"> Comments: <%= @post.comments.count %> Likes: <%= @post.likes.count %></p>
+  <p>
+    <%= @post.text %>
+  </p>
+</section>
+<ul class="comments-list">
+  <% @post.comments.each do |comment| %>
+    <%= render 'shared/comment', comment: comment %>
+  <% end %>
+</ul>
