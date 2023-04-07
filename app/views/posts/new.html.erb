@@ -1,0 +1,12 @@
+<h2>New Post<h2>
+<%= form_with model: [current_user, @post] do |form| %>
+  <div>
+    <%= form.label :Title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :Text %>
+    <%= form.text_area :text %>
+  </div>
+  <%= form.submit %>
+<% end %>
