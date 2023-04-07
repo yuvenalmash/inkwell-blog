@@ -1,8 +1,13 @@
 <section class="post">
   <h3><%= link_to post.title, user_post_path(@user, post) %><h3>
   <p><%= post.text %></p>
-  <div class="post-counters">
-    <p>Comments: <%= post.comments_counter %></p>
-    <p>Likes: <%= post.likes_counter %></p>
+  <div>
+    <div class="post-interactions">
+      <%= link_to "Like", user_post_likes_path(@user, post), method: :post, class: "like-link" %>
+    </div>
+    <div class="post-counters">
+      <p>Comments: <%= post.comments_counter %></p>
+      <p>Likes: <span id="likes-counter-<%= post.id %>"><%= post.likes_counter %></span></p>
+    </div>
   </div>
 </section>
