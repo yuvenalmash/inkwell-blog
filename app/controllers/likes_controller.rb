@@ -11,7 +11,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = current_user.likes.find_by!(post: @post)
+    @like = current_user.likes.find(params[:id])
     if @like.destroy
       redirect_to [@post.author, @post]
     else
