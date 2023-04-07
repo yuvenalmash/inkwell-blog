@@ -4,6 +4,7 @@
   <div>
     <div class="post-interactions">
       <%= link_to "Like", user_post_likes_path(@user, post), method: :post, class: "like-link" %>
+      <%= link_to "Comment", user_post_comments_path(@user, post), method: :post, class: "comment-link" %>
     </div>
     <div class="post-counters">
       <p>Comments: <%= post.comments_counter %></p>
@@ -11,3 +12,9 @@
     </div>
   </div>
 </section>
+<div class="comment-input">
+  <%= form_with model: [ @user, post, Comment.new ], remote: true do |f| %>
+    <%= f.text_field :text %>
+    <%= f.submit "Comment" %>
+  <% end %>
+</div>
