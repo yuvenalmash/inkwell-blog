@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  */
+@import "jquery-ui.css";
+
 * {
   padding: 0;
   margin: 0;
@@ -45,5 +47,4 @@ li {
 button {
   width: fit-content;
   padding: 4px 12px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0);
 }
