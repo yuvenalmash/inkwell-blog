@@ -4,19 +4,15 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.build(post: @post)
     if @like.save
-      redirect_to [@post.author, @post], notice: "Liked!"
+      redirect_to [@post.author, @post], notice: 'Liked!'
     else
-      redirect_to [@post.author, @post], alert: "Could not like"
+      redirect_to [@post.author, @post], alert: 'Could not like'
     end
   end
 
   def destroy
     @like = current_user.likes.find(params[:id])
-    if @like.destroy
-      redirect_to [@post.author, @post]
-    else
-      redirect_to [@post.author, @post]
-    end
+    redirect_to [@post.author, @post]
   end
 
   private

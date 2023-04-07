@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  has_many :posts, foreign_key: :user_id, class_name: "Post"
-  has_many :comments, foreign_key: :user_id, class_name: "Comment"
+  has_many :posts, foreign_key: :user_id, class_name: 'Post'
+  has_many :comments, foreign_key: :user_id, class_name: 'Comment'
   has_many :likes,
            foreign_key: :user_id,
-           class_name: "Like",
+           class_name: 'Like',
            dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
 

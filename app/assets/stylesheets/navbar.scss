@@ -7,7 +7,6 @@ nav {
     display: flex;
 
     li {
-
       a {
         display: block;
         color: white;
@@ -26,7 +25,7 @@ nav {
       }
 
       &.active {
-        background-color: #4CAF50;
+        background-color: #4caf50;
       }
     }
   }

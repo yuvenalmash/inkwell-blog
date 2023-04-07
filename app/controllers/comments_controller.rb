@@ -4,19 +4,15 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-      redirect_to [@post.author, @post], notice: "Commented!"
+      redirect_to [@post.author, @post], notice: 'Commented!'
     else
-      redirect_to [@post.author, @post], alert: "Could not comment"
+      redirect_to [@post.author, @post], alert: 'Could not comment'
     end
   end
 
   def destroy
     @comment = current_user.comments.find(params[:id])
-    if @comment.destroy
-      redirect_to [@post.author, @post]
-    else
-      redirect_to [@post.author, @post]
-    end
+    redirect_to [@post.author, @post]
   end
 
   private
