@@ -2,18 +2,27 @@ class LikesController < ApplicationController
   before_action :find_post
 
   def create
-    @like = current_user.likes.build(post: @post)
-    if @like.save
-      # render json: { likes_count: @post.likes_counter }
-      head :no_content
+    @like = current_user.likes.find_or_initialize_by(post: @post)
+    if @like.persisted?
+      @like.destroy
+      notice = "You unliked this post"
+    elsif @like.save
+      notice = "You liked this post"
     else
-      render json: { error: "Could not like" }, status: :unprocessable_entity
+      notice = "Could not like"
     end
+    head :no_content
   end
 
   def destroy
-    @like = current_user.likes.find(params[:id])
-    redirect_to [@post.author, @post]
+    @like = current_user.likes.find_by(post: @post)
+    if @like
+      @like.destroy
+      flash[:notice] = "You unliked this post"
+    else
+      flash[:alert] = "Could not unlike"
+    end
+    head :no_content
   end
 
   private

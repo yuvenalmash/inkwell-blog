@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
-  belongs_to :author, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :author, class_name: "User", foreign_key: "user_id"
   has_many :comments
   has_many :likes, dependent: :destroy
-  has_many :liking_users, through: :likes, source: :author
+  # has_many :liking_users, through: :likes, source: :author
 
   validates :title, presence: true, length: { maximum: 250 }
   validates :comments_counter,
@@ -18,6 +18,10 @@ class Post < ApplicationRecord
 
   def recent_comments
     comments.order(created_at: :desc).limit(5)
+  end
+
+  def liked_by?(user)
+    likes.exists?(author: user)
   end
 
   after_create :update_post_counter
