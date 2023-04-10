@@ -4,9 +4,10 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.build(post: @post)
     if @like.save
-      redirect_to [@post.author, @post], notice: 'Liked!'
+      # render json: { likes_count: @post.likes_counter }
+      head :no_content
     else
-      redirect_to [@post.author, @post], alert: 'Could not like'
+      render json: { error: "Could not like" }, status: :unprocessable_entity
     end
   end
 

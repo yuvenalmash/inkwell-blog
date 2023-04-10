@@ -3,7 +3,7 @@
   <p><%= post.text %></p>
   <div>
     <div class="post-interactions">
-      <%= link_to "Like", user_post_likes_path(@user, post), method: :post, class: "like-link" %>
+      <%= link_to "Like", user_post_likes_path(@user, post), method: :post, class: "like-link", id: "like-link-#{post.id}", data: { post_id: post.id } %>
       <%= link_to "Comment", user_post_comments_path(@user, post), method: :post, class: "comment-link" %>
     </div>
     <div class="post-counters">
