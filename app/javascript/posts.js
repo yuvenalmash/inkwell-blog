@@ -11,3 +11,12 @@ document.addEventListener('click', function (event) {
     likeLink.textContent = likeLink.textContent === 'Like' ? 'Unlike' : 'Like';
   }
 });
+
+document.addEventListener('click', function (event) {
+  if(event.target.matches('.comment-link')) {
+    event.preventDefault();
+    const postId = event.target.dataset.postId;
+    const commentForm = document.querySelector(`#comment-form-${postId}`);
+    commentForm.style.display = commentForm.style.display === 'none' ? 'block' : 'none';
+  }
+});
