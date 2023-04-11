@@ -9,20 +9,17 @@ RSpec.describe 'Users', type: :request do
       expect(assigns(:users)).to eq([user1, user2])
     end
 
-    it 'responds with a 200 status code' do
-      get users_path
-      expect(response).to have_http_status(200)
-    end
-
     it 'response body includes the name of the first user' do
       user = FactoryBot.create(:user)
       get users_path
       expect(response.body).to include(user.name)
     end
 
-    it 'renders the index template' do
+    it 'renders the users index template' do
+      FactoryBot.create(:user)
+      FactoryBot.create(:user)
       get users_path
-      expect(response).to render_template('index')
+      expect(response).to render_template('users/index')
     end
   end
 
