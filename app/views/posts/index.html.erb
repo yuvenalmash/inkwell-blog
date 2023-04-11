@@ -1,6 +1,6 @@
 <%= render 'shared/user', user: @user %>
 <ul class="posts-list">
-  <% @user.posts.each do |post| %>
+  <% @posts.each do |post| %>
     <li class="posts-list-li">
       <%= render 'shared/post', post: post %>
       <% if post.comments.count > 0 %>
@@ -13,4 +13,4 @@
     </li>
   <% end %>
 </ul>
-<button>pagination</button>
+<%= paginate @posts %>

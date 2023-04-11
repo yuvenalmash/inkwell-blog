@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_user
 
   def index
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show
