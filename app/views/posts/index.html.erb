@@ -5,7 +5,7 @@
       <%= render 'shared/post', post: post %>
       <% if post.comments.count > 0 %>
         <ul class="comments-list">
-          <% post.recent_comments.reverse.each do |comment| %>
+          <% post.recent_comments.includes(:author).reverse.each do |comment| %>
             <%= render 'shared/comment', comment: comment %>
           <% end %>
         </ul>
