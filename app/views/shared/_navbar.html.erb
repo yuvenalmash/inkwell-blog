@@ -1,8 +1,15 @@
 <nav>
   <ul>
     <li><%= link_to "Inkwell Blog", root_path %></li>
-    <li><%= link_to "Users", users_path %></li>
-    <li><%= link_to "Posts", user_posts_path(current_user) %></li>
-    <li><p>Current user: <%= current_user.name %></p></li>
+    <% if user_signed_in? %>
+      <li><%= link_to "Users", users_path %></li>
+      <li><%= link_to "Posts", user_posts_path(current_user) %></li>
+      <li><p>Current user: <%= current_user.name %></p></li>
+      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to "New Post", new_user_post_path(current_user) %></li>
+    <% else %>
+      <li><%= link_to "Sign In", new_user_session_path %></li>
+      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <% end %>
   </ul>
 </nav>
