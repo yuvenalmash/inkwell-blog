@@ -8,8 +8,8 @@
       <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       <li><%= link_to "New Post", new_user_post_path(current_user) %></li>
     <% else %>
-      <li><%= link_to "Sign In", new_user_session_path %></li>
-      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+      <li><%= link_to "Sign In", '/login' %></li>
+      <li><%= link_to "Sign Up", '/signup' %></li>
     <% end %>
   </ul>
 </nav>
