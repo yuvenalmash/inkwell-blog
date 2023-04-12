@@ -3,8 +3,12 @@
   <p><%= post.text %></p>
   <div>
     <div class="post-interactions">
-      <%= link_to "Like", user_post_likes_path(@user, post), method: :post, class: "like-link" %>
-      <%= link_to "Comment", user_post_comments_path(@user, post), method: :post, class: "comment-link" %>
+      <% if post.liked_by?(current_user) %>
+        <%= link_to "Unlike", user_post_like_path(@user, post, post.likes.find_by(user_id: current_user.id)), method: :delete, class: "like-link", id: "like-link-#{post.id}", data: { post_id: post.id } %>
+      <% else %>
+        <%= link_to "Like", user_post_likes_path(@user, post), method: :post, class: "like-link", id: "like-link-#{post.id}", data: { post_id: post.id } %>
+      <% end %>
+      <%= link_to "Comment", user_post_comments_path(@user, post), class: "comment-link", data: { post_id: post.id } %>
     </div>
     <div class="post-counters">
       <p>Comments: <%= post.comments_counter %></p>
@@ -12,7 +16,7 @@
     </div>
   </div>
 </section>
-<div class="comment-input">
+<div class="comment-form" id="comment-form-<%= post.id %>" style="display: none;">
   <%= form_with model: [ @user, post, Comment.new ], remote: true do |f| %>
     <%= f.text_field :text %>
     <%= f.submit "Comment" %>

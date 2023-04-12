@@ -54,6 +54,9 @@ gem 'jquery-rails'
 # Use jquery-ui for pretty UI
 gem 'jquery-ui-rails'
 
+# Use kaminary for pagination
+gem 'kaminari'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]

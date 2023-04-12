@@ -2,17 +2,19 @@ class LikesController < ApplicationController
   before_action :find_post
 
   def create
-    @like = current_user.likes.build(post: @post)
-    if @like.save
-      redirect_to [@post.author, @post], notice: 'Liked!'
-    else
-      redirect_to [@post.author, @post], alert: 'Could not like'
-    end
+    @like = current_user.likes.find_or_initialize_by(post: @post)
+    @like.persisted? ? @like.destroy : @like.save
+    head :no_content
   end
 
   def destroy
-    @like = current_user.likes.find(params[:id])
-    redirect_to [@post.author, @post]
+    @like = current_user.likes.find_by(post: @post)
+    if @like
+      @like.destroy
+    else
+      flash[:alert] = 'Could not unlike'
+    end
+    head :no_content
   end
 
   private

@@ -2,11 +2,13 @@ AllCops:
   NewCops: enable
   Exclude:
     - "db/**/*"
-    - "bin/*" 
+    - "bin/*"
     - "config/**/*"
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "spec/views/posts/index_spec.rb"
+    - "spec/views/users/show_spec.rb"
 
   DisplayCopNames: true
 

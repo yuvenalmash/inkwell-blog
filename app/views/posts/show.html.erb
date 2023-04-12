@@ -6,7 +6,7 @@
   </p>
 </section>
 <ul class="comments-list">
-  <% @post.comments.each do |comment| %>
+  <% @post.comments.includes(:author).reverse.each do |comment| %>
     <%= render 'shared/comment', comment: comment %>
   <% end %>
 </ul>

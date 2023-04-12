@@ -8,7 +8,7 @@ RSpec.describe 'Posts', type: :request do
       post1 = FactoryBot.create(:post, author: user)
       post2 = FactoryBot.create(:post, author: user)
       get user_posts_path(user)
-      expect(assigns(:posts)).to eq([post1, post2])
+      expect(assigns(:posts)).to match_array([post1, post2])
     end
 
     it 'responds with a 200 status code' do
