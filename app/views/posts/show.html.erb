@@ -4,6 +4,9 @@
   <p>
     <%= @post.text %>
   </p>
+  <% if can? :destroy, @post %>
+    <%= link_to "Delete", user_post_path(@user, @post), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
 </section>
 <ul class="comments-list">
   <% @post.comments.includes(:author).reverse.each do |comment| %>

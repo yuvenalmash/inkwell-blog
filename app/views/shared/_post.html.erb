@@ -9,6 +9,9 @@
         <%= link_to "Like", user_post_likes_path(@user, post), method: :post, class: "like-link", id: "like-link-#{post.id}", data: { post_id: post.id } %>
       <% end %>
       <%= link_to "Comment", user_post_comments_path(@user, post), class: "comment-link", data: { post_id: post.id } %>
+      <% if can? :destroy, post %>
+        <%= link_to "Delete", user_post_path(@user, post), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>
     <div class="post-counters">
       <p>Comments: <%= post.comments_counter %></p>
