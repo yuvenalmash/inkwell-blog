@@ -12,8 +12,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = current_user.comments.find(params[:id])
-    redirect_to [@post.author, @post]
+    @comment = @post.comments.find(params[:id])
+    if @comment.destroy
+      @post.update(comments_counter: @post.comments_counter - 1)
+      redirect_to [@post.author, @post], notice: 'Comment deleted'
+    else
+      redirect_to [@post.author, @post], alert: 'Could not delete comment'
+    end
   end
 
   private
