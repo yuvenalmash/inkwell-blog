@@ -33,6 +33,7 @@ class Ability
       can :read, :all # everyone can read everything
     end
     return unless user.persisted? # if user is logged in
+
     can :create, [Post, Comment]
     can :update, Post, user_id: user.id
     can :destroy, Post, user_id: user.id
