@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
-  has_many :comments
+  has_many :comments, dependent: :destroy, counter_cache: :comments_counter
   has_many :likes, dependent: :destroy
   # has_many :liking_users, through: :likes, source: :author
 
