@@ -1,32 +1,43 @@
+@import 'application';
+
 nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
   background-color: #333;
-  overflow: hidden;
-  width: 100%;
+  padding: 0 16px;
 
-  ul {
+  #logo {
     display: flex;
+    align-items: center;
+    color: $primary-color;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
+  }
 
-    li {
-      a {
-        display: block;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        padding: 14px 16px;
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 
-        &:hover {
-          background-color: #111;
-        }
+    a {
+      display: block;
+      padding: 14px 16px;
+      color: $background-color;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $accent-color;
+        background-color: $primary-color;
       }
+    }
 
-      p {
-        color: rgb(64, 156, 126);
-        padding: 14px 16px;
-      }
-
-      &.active {
-        background-color: #4caf50;
-      }
+    .active {
+      color: $primary-color;
     }
   }
 }

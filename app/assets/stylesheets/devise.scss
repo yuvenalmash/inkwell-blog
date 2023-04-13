@@ -1,0 +1,39 @@
+$primary-color: #2ecc71;
+$secondary-color: #3498db;
+
+.field {
+  margin-bottom: 24px;
+
+  label {
+    font-size: 18px;
+    color: $secondary-color;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    border: none;
+    border-bottom: 2px solid $secondary-color;
+    padding: 12px;
+    width: 100%;
+    font-size: 20px;
+    color: $secondary-color;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+}
+
+.links {
+  margin-top: 7px;
+  color: $secondary-color;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: darken($secondary-color, 10%);
+  }
+}

@@ -1,8 +1,15 @@
 <nav>
-  <ul>
-    <li><%= link_to "Inkwell Blog", root_path %></li>
-    <li><%= link_to "Users", users_path %></li>
-    <li><%= link_to "Posts", user_posts_path(current_user) %></li>
-    <li><p>Current user: <%= current_user.name %></p></li>
+  <%= link_to "Inkwell Blog", root_path, id: "logo" %>
+  <ul class="nav-links">
+    <% if user_signed_in? %>
+      <li><%= link_to "Users", users_path, class: current_page?(users_path) ? "active" : "" %></li>
+      <li><%= link_to "Posts", user_posts_path(current_user), class: current_page?(user_posts_path(current_user)) ? "active" : "" %></li>
+      <li><%= link_to "New Post", new_user_post_path(current_user), class: current_page?(new_user_post_path(current_user)) ? "active" : "" %></li>
+      <li><%= link_to "My Profile", user_path(current_user), class: current_page?(user_path(current_user)) ? "active" : "" %></li>
+      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Sign In", '/login' %></li>
+      <li><%= link_to "Sign Up", '/signup' %></li>
+    <% end %>
   </ul>
 </nav>

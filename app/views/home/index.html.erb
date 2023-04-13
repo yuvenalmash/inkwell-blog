@@ -1,2 +1,4 @@
 <h3>Welcome to Inkwell Blog App</h3>
-<%= link_to "New Post", new_user_post_path(current_user) %>
+<% if user_signed_in? %>
+  <%= link_to "New Post", new_user_post_path(current_user) %>
+<% end %>
