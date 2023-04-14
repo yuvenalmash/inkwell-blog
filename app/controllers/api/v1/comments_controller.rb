@@ -1,5 +1,4 @@
-class Api::V1::CommentsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+class Api::V1::CommentsController < Api::V1::ApplicationController
   before_action :set_user
   before_action :set_post
   before_action :set_comment, only: %i[show update destroy]

@@ -1,4 +1,4 @@
-class Api::V1::PostsController < ApplicationController
+class Api::V1::PostsController < Api::V1::ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_post, only: [:show]
   before_action :set_user
