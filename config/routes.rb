@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: %i[index show] do
         resources :posts, only: %i[index create show update destroy] do
-          resources :comments, only: %i[create show update destroy]
+          resources :comments, only: %i[index create show update destroy]
           resources :likes, only: %i[create destroy]
         end
       end
