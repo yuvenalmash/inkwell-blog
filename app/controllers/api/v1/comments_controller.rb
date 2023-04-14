@@ -1,4 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_user
   before_action :set_post
   before_action :set_comment, only: %i[show update destroy]
@@ -14,10 +15,19 @@ class Api::V1::CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.new(comment_params)
+    if @comment.save
+      render json: @comment, status: :created
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
   end
 
   def update
-    @comment.update(comment_params)
+    if @comment.update(comment_params)
+      render json: @comment, status: :ok
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -39,6 +49,6 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:text, :user_id, :post_id)
   end
 end
