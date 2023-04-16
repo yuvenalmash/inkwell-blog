@@ -20,6 +20,7 @@
   - [Usage](#usage)
   - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
+- [API Documentation](#api-documentation)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -55,10 +56,16 @@
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
+- **web application**
+  - Users can create, read, update, and delete blog posts.
+  - Users can comment on blog posts.
+  - Users can like/dislike blog posts.
 
-- **Create post**
-- **Delete post**
-- **Update post**
+- **API**
+  - Users can create, read, update, and delete blog posts.
+  - Users can comment on blog posts.
+  - Users can like/dislike blog posts.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,6 +130,58 @@ To run tests, run the following command:
 ```sh
   rspec
 ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- API DOCUMENTATION -->
+
+## API Documentation <a name="api-documentation"></a>
+
+### API Endpoints
+
+#### Prefix
+
+- '/api/v1'
+
+#### Users
+
+- 'GET /users' - Get all users
+- 'GET /users/:id' - Get a user
+- 'POST /users' - Create a user
+- 'PATCH /users/:id' - Update a user
+- 'DELETE /users/:id' - Delete a user
+
+#### Posts
+
+- 'GET /users/:user_id/posts' - Get all posts for a user
+- 'GET /users/:user_id/posts/:id' - Get a post for a user
+- 'POST /users/:user_id/posts' - Create a post for a user
+- 'PATCH /users/:user_id/posts/:id' - Update a post for a user
+- 'DELETE /users/:user_id/posts/:id' - Delete a post for a user
+
+#### Comments
+
+- 'GET /users/:user_id/posts/:post_id/comments' - Get all comments for a post
+- 'GET /users/:user_id/posts/:post_id/comments/:id' - Get a comment for a post
+- 'POST /users/:user_id/posts/:post_id/comments' - Create a comment for a post
+  ```json
+  {
+    "text": "This is a comment",
+    "user_id": 1,
+    "post_id": 1
+  }
+  ```
+- 'PATCH /users/:user_id/posts/:post_id/comments/:id' - Update a comment for a post
+- 'DELETE /users/:user_id/posts/:post_id/comments/:id' - Delete a comment for a post
+
+#### Likes
+
+- 'GET /users/:user_id/posts/:post_id/likes' - Get all likes for a post
+- 'GET /users/:user_id/posts/:post_id/likes/:id' - Get a like for a post
+- 'POST /users/:user_id/posts/:post_id/likes' - Create a like for a post
+- 'PATCH /users/:user_id/posts/:post_id/likes/:id' - Update a like for a post
+- 'DELETE /users/:user_id/posts/:post_id/likes/:id' - Delete a like for a post
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
